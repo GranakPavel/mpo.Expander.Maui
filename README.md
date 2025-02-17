@@ -17,7 +17,7 @@ I added properties that can set the expander header styles.
 | String     | HeaderText                | Your text in the header                                                 | string.Empty  |
 | Style      | HeaderBorderStyle         | Defining the Header Border Style                                        | Style         |    
 | Style      | HeaderTextStyle           | Defining the header text style.                                         | Style         |    
-| Style      | HeaderIconStyle           | Definování stylu ikony hlavičky.                                        | Style         | 
+| Style      | HeaderIconStyle           | Defining the header icon style.                                         | Style         | 
 | Double     | HeaderIconDefaultRotationAngle | Default icon rotation                                              | 0D            |
 | Double     | HeaderIconRotateAngle     | Rotate icon by                                                          | -90D          |
 
