@@ -14,12 +14,12 @@ I added properties that can set the expander header styles.
 
 | Type       | Property                  | Description                                                             | Default Value |
 |------------|---------------------------|-------------------------------------------------------------------------|---------------|
-| String     | HeaderTextProperty        | Your text in the header                                                 | string.Empty  |
-| Style      | HeaderBorderStyleProperty | Defining the Header Border Style                                        | Style         |    
-| Style      | HeaderTextStyleProperty   | Defining the header text style.                                         | Style         |    
-| Style      | HeaderIconStyleProperty   | Definování stylu ikony hlavičky.                                        | Style         | 
-| Double     | HeaderIconDefaultRotationAngleProperty | Default icon rotation                                      | 0D            |
-| Double     | HeaderIconRotateAngleProperty | Rotate icon by                                                      | -90D          |
+| String     | HeaderText                | Your text in the header                                                 | string.Empty  |
+| Style      | HeaderBorderStyle         | Defining the Header Border Style                                        | Style         |    
+| Style      | HeaderTextStyle           | Defining the header text style.                                         | Style         |    
+| Style      | HeaderIconStyle           | Definování stylu ikony hlavičky.                                        | Style         | 
+| Double     | HeaderIconDefaultRotationAngle | Default icon rotation                                      | 0D            |
+| Double     | HeaderIconRotateAngle     | Rotate icon by                                                      | -90D          |
 
 I used the font for the icon materialdesignicons.ttf
 To view the font code, you can use the page: https://andreinitescu.github.io/IconFont2Code/
