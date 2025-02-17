@@ -2,10 +2,11 @@
 
 I extended the original expander with a predefined header that has a section for text (width *) and icon text (width 30). I modified the expander to make it easier to use.
 
-Header
-------------------------------------------------
-| Text                                |  Icon  |
-------------------------------------------------
+<div style="display: flex;">
+    <img src="https://github.com/ewerspej/epj.Expander.Maui/blob/main/assets/S01.PNG" width="360" />
+    <img src="https://github.com/ewerspej/epj.Expander.Maui/blob/main/assets/S02.PNG" width="360" />
+    <img src="https://github.com/ewerspej/epj.Expander.Maui/blob/main/assets/S03.PNG" width="360" />
+</div>
 
 I added properties that can set the expander header styles.
 
@@ -23,7 +24,7 @@ To view the font code, you can use the page: https://andreinitescu.github.io/Ico
 
 ## Usage
 
-### Registration *(not required at this moment)*
+### Registration
 
 Registration of the control strictly isn't required, because it only uses standard controls natively supported by .NET MAUI at the moment. However, a registration method is provided in case that some future version requires to do so:
 
