@@ -5,10 +5,33 @@
   xmlns:maui="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
   xmlns:hybrid="clr-namespace:ExpanderSample.AccordionExamples.Hybrid"
   x:Class="ExpanderSample.AccordionExamples.Hybrid.HybridAccordionPage"
+  xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
   x:DataType="hybrid:HybridAccordionViewModel"
   Title="Hybrid Accordion">
 
+
   <VerticalStackLayout
+    x:Name="AccordionLayout"
+    Spacing="6"
+    BindableLayout.ItemsSource="{Binding People}">
+    <BindableLayout.ItemTemplate>
+      <DataTemplate x:DataType="{x:Type hybrid:PersonTuple}">
+        <ExpanderControl:Expander Animated="True" HeaderText="{Binding Item1}" HeaderTapped="Expander_OnHeaderTapped">
+          <Grid
+            HeightRequest="200"
+            BackgroundColor="White">
+                      <Label
+              Text="{Binding Item2}"
+              VerticalOptions="Center"
+              HorizontalOptions="Center" />
+          </Grid>
+        </ExpanderControl:Expander>
+      </DataTemplate>
+    </BindableLayout.ItemTemplate>
+  </VerticalStackLayout>
+
+
+  <!--<VerticalStackLayout
     x:Name="AccordionLayout"
     Spacing="6"
     BindableLayout.ItemsSource="{Binding People}">
@@ -40,6 +63,6 @@
 
       </DataTemplate>
     </BindableLayout.ItemTemplate>
-  </VerticalStackLayout>
+  </VerticalStackLayout>-->
 
 </ContentPage>
