@@ -3,9 +3,9 @@
 I extended the original expander with a predefined header that has a section for text (width *) and icon text (width 30). I modified the expander to make it easier to use.
 
 <div style="display: flex;">
-    <img src="https://github.com/ewerspej/epj.Expander.Maui/blob/main/assets/S01.PNG" width="360" />
-    <img src="https://github.com/ewerspej/epj.Expander.Maui/blob/main/assets/S02.PNG" width="360" />
-    <img src="https://github.com/ewerspej/epj.Expander.Maui/blob/main/assets/S03.PNG" width="360" />
+    <img src="https://github.com/GranakPavel/mpo.Expander.Maui/tree/main/assets/S01.PNG" width="360" />
+    <img src="https://github.com/GranakPavel/mpo.Expander.Maui/tree/main/assets/S02.PNG" width="360" />
+    <img src="https://github.com/GranakPavel/mpo.Expander.Maui/tree/main/assets/S03.PNG" width="360" />
 </div>
 
 I added properties that can set the expander header styles.
