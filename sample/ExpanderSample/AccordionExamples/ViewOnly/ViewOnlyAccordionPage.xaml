@@ -4,12 +4,48 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:maui="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
   x:Class="ExpanderSample.AccordionExamples.ViewOnly.ViewOnlyAccordionPage"
+  xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
   Title="View-only Accordion">
 
   <VerticalStackLayout
     x:Name="AccordionLayout"
     Spacing="6">
 
+    <ExpanderControl:Expander Animated="True" HeaderText="Jane" HeaderTapped="Expander_OnHeaderTapped">
+      <Grid
+        HeightRequest="200"
+        BackgroundColor="White">
+        <Label
+          Text="Wants to be an actress"
+          VerticalOptions="Center"
+          HorizontalOptions="Center" />
+      </Grid>
+    </ExpanderControl:Expander>
+    
+    <ExpanderControl:Expander Animated="True" HeaderText="John" HeaderTapped="Expander_OnHeaderTapped">
+      <Grid
+        HeightRequest="200"
+        BackgroundColor="White">
+        <Label
+          Text="Wants to be a heart surgeon"
+          VerticalOptions="Center"
+          HorizontalOptions="Center" />
+      </Grid>
+    </ExpanderControl:Expander>
+
+
+    <ExpanderControl:Expander Animated="True" HeaderText="Jasmine" HeaderTapped="Expander_OnHeaderTapped">
+      <Grid
+        HeightRequest="200"
+        BackgroundColor="White">
+        <Label
+          Text="Wants to be a rock musician"
+          VerticalOptions="Center"
+          HorizontalOptions="Center" />
+      </Grid>
+    </ExpanderControl:Expander>
+
+    <!--
     <maui:Expander
       HeaderTapped="Expander_OnHeaderTapped"
       Animated="True">
@@ -80,7 +116,7 @@
           VerticalOptions="Center"
           HorizontalOptions="Center" />
       </Grid>
-    </maui:Expander>
+    </maui:Expander>-->
 
   </VerticalStackLayout>
 
