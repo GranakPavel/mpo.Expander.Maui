@@ -1,3 +1,136 @@
+# mpo.Expander.Maui
+
+I extended the original expander with a predefined header that has a section for text (width *) and icon text (width 30). I modified the expander to make it easier to use.
+
+Header
+------------------------------------------------
+| Text                                |  Icon  |
+------------------------------------------------
+
+I added properties that can set the expander header styles.
+
+| Type       | Property                  | Description                                                             | Default Value |
+|------------|---------------------------|-------------------------------------------------------------------------|---------------|
+| String     | HeaderTextProperty        | Your text in the header                                                 | ""            |
+| Style      | HeaderBorderStyleProperty | Defining the Header Border Style                                        | Style         |    
+| Style      | HeaderTextStyleProperty   | Defining the header text style.                                         | Style         |    
+| Style      | HeaderIconStyleProperty   | Definování stylu ikony hlavičky.                                        | Style         | 
+| Double     | HeaderIconDefaultRotationAngleProperty | Default icon rotation                                      | 0D            |
+| Double     | HeaderIconRotateAngleProperty | Rotate icon by                                                      | -90D          |
+
+I used the font for the icon materialdesignicons.ttf
+To view the font code, you can use the page: https://andreinitescu.github.io/IconFont2Code/
+
+## Usage
+
+### Registration *(not required at this moment)*
+
+Registration of the control strictly isn't required, because it only uses standard controls natively supported by .NET MAUI at the moment. However, a registration method is provided in case that some future version requires to do so:
+
+```c#
+public static MauiApp CreateMauiApp()
+{
+    var builder = MauiApp.CreateBuilder();
+    builder
+        .UseMauiApp<App>()
+        .UseExpander() // optional: add this
+        .ConfigureFonts(fonts =>
+        {
+            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            fonts.AddFont("materialdesignicons.ttf", "MaterialDesignIconsFont");
+        });
+
+    return builder.Build();
+}
+```
+
+### XAML
+Add namespace: xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
+```xml
+
+      <!--Default style defined in ExpanderStyles.xaml -->
+      <ExpanderControl:Expander Animated="True" HeaderText="Test expander 001">
+        <StackLayout Style="{StaticResource ExpanderContentStackLayout}">
+          <Label Text="L010001" FontAttributes="Bold"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+        </StackLayout>
+      </ExpanderControl:Expander>
+
+      
+      <ExpanderControl:Expander Animated="True" ExpandDuration="1000"  
+                     HeaderText="Test expander 002"
+                     HeaderBorderStyle="{StaticResource ExpanderHeaderBorder2}"
+                     HeaderTextStyle="{StaticResource ExpanderHeaderText}"
+                     HeaderIconStyle="{StaticResource ExpanderHeaderIcon}"
+                     >
+        <VerticalStackLayout Style="{StaticResource ExpanderContentVerticalStackLayout}">
+          <Label Text="L010001" FontAttributes="Bold" Style="{StaticResource ExpanderHeaderText}"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+        </VerticalStackLayout>
+      </ExpanderControl:Expander>
+
+      <!--The modified style defined in ExpanderStyles.xaml with the style name ExpanderTemplate.-->
+      <ExpanderControl:Expander Animated="True" HeaderText="Test expander 003" Style="{StaticResource ExpanderTemplate}">
+        <StackLayout Style="{StaticResource ExpanderContentStackLayout}">
+          <Label Text="L010001" FontAttributes="Bold"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+        </StackLayout>
+      </ExpanderControl:Expander>
+
+      <ExpanderControl:Expander Animated="True" HeaderText="Test expander with very long text 004">
+        <StackLayout Style="{StaticResource ExpanderContentStackLayout}">
+          <Label Text="L010001" FontAttributes="Bold"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+        </StackLayout>
+      </ExpanderControl:Expander>
+```
+
+## Styles
+
+..sample\ExpanderSample\Resources\Styles\ExpanderStyles.xaml
+
+============================================
+============================================
+============================================
 # epj.Expander.Maui
 
 ![License](https://img.shields.io/github/license/ewerspej/epj.Expander.Maui)
