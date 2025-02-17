@@ -27,7 +27,6 @@
 		<RepositoryUrl>https://github.com/ewerspej/epj.Expander.Maui</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>expander;maui;dotnet;accordion;</PackageTags>
-		<PackageIcon>epj_icon.png</PackageIcon>
 	</PropertyGroup>
 
   <ItemGroup>
@@ -35,10 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\icons\epj_icon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
