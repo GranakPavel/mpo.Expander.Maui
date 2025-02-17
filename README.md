@@ -11,7 +11,7 @@ I added properties that can set the expander header styles.
 
 | Type       | Property                  | Description                                                             | Default Value |
 |------------|---------------------------|-------------------------------------------------------------------------|---------------|
-| String     | HeaderTextProperty        | Your text in the header                                                 | ""            |
+| String     | HeaderTextProperty        | Your text in the header                                                 | string.Empty  |
 | Style      | HeaderBorderStyleProperty | Defining the Header Border Style                                        | Style         |    
 | Style      | HeaderTextStyleProperty   | Defining the header text style.                                         | Style         |    
 | Style      | HeaderIconStyleProperty   | Definování stylu ikony hlavičky.                                        | Style         | 
