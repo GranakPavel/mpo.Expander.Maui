@@ -5,7 +5,7 @@ I extended the original expander with a predefined header that has a section for
 ## Summary
 
 <div style="display: flex;">
-    <img src="https://github.com/GranakPavel/mpo.Expander.Maui/tree/main/assets/S01.PNG" width="360" />
+    <img src="assets/S01.png" width="360" />
     <img src="https://github.com/GranakPavel/mpo.Expander.Maui/tree/main/assets/S02.PNG" width="360" />
     <img src="https://github.com/GranakPavel/mpo.Expander.Maui/tree/main/assets/S03.PNG" width="360" />
 </div>
