@@ -15,6 +15,7 @@ namespace ExpanderSample
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("materialdesignicons.ttf", "MaterialDesignIconsFont");
                 });
 
 #if DEBUG
