@@ -18,8 +18,8 @@ I added properties that can set the expander header styles.
 | Style      | HeaderBorderStyle         | Defining the Header Border Style                                        | Style         |    
 | Style      | HeaderTextStyle           | Defining the header text style.                                         | Style         |    
 | Style      | HeaderIconStyle           | Definování stylu ikony hlavičky.                                        | Style         | 
-| Double     | HeaderIconDefaultRotationAngle | Default icon rotation                                      | 0D            |
-| Double     | HeaderIconRotateAngle     | Rotate icon by                                                      | -90D          |
+| Double     | HeaderIconDefaultRotationAngle | Default icon rotation                                              | 0D            |
+| Double     | HeaderIconRotateAngle     | Rotate icon by                                                          | -90D          |
 
 I used the font for the icon materialdesignicons.ttf
 To view the font code, you can use the page: https://andreinitescu.github.io/IconFont2Code/
