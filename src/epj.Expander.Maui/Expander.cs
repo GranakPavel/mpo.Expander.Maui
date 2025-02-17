@@ -17,7 +17,7 @@ public class Expander : ContentView
     private Label MyHeaderIcon { get; }
 
     //propertyChanged: OnHeaderTextPropertyChanged
-    public static readonly BindableProperty HeaderTextProperty = BindableProperty.Create(nameof(HeaderText), typeof(string), typeof(Expander), "", BindingMode.TwoWay);
+    public static readonly BindableProperty HeaderTextProperty = BindableProperty.Create(nameof(HeaderText), typeof(string), typeof(Expander), string.Empty, BindingMode.TwoWay);
     public static readonly BindableProperty HeaderBorderStyleProperty = BindableProperty.CreateAttached(nameof(HeaderBorderStyle), typeof(Style), typeof(Border), default(Style), BindingMode.OneWay);
     public static readonly BindableProperty HeaderTextStyleProperty = BindableProperty.CreateAttached(nameof(HeaderTextStyle), typeof(Style), typeof(Label), default(Style), BindingMode.OneWay);
     public static readonly BindableProperty HeaderIconStyleProperty = BindableProperty.CreateAttached(nameof(HeaderIconStyle), typeof(Style), typeof(Label), default(Style), BindingMode.OneWay);
