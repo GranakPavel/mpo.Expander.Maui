@@ -4,11 +4,38 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:maui="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
   xmlns:dataBinding="clr-namespace:ExpanderSample.AccordionExamples.DataBinding"
+  xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
   x:Class="ExpanderSample.AccordionExamples.DataBinding.DataBindingAccordionPage"
   x:DataType="dataBinding:DataBindingAccordionViewModel"
   Title="Data binding accordion">
 
   <VerticalStackLayout
+  Spacing="6"
+  BindableLayout.ItemsSource="{Binding People}">
+    <BindableLayout.ItemTemplate>
+      <DataTemplate x:DataType="dataBinding:PersonModel">
+
+        <ExpanderControl:Expander Animated="True" HeaderText="{Binding Name}"
+              Command="{Binding SelectItemCommand, Source={RelativeSource AncestorType={x:Type dataBinding:DataBindingAccordionViewModel}}}"
+              CommandParameter="{Binding .}"
+              IsExpanded="{Binding Selected}">
+          <Grid
+            HeightRequest="200"
+            BackgroundColor="White">
+            <Label
+            Text="{Binding Description}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+          </Grid>
+        </ExpanderControl:Expander>
+      </DataTemplate>
+    </BindableLayout.ItemTemplate>
+  </VerticalStackLayout>
+
+
+
+
+  <!--<VerticalStackLayout
     Spacing="6"
     BindableLayout.ItemsSource="{Binding People}">
     <BindableLayout.ItemTemplate>
@@ -42,6 +69,6 @@
 
       </DataTemplate>
     </BindableLayout.ItemTemplate>
-  </VerticalStackLayout>
+  </VerticalStackLayout>-->
 
 </ContentPage>
