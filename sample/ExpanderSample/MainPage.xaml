@@ -1,40 +1,97 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
   xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  xmlns:maui="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
+  xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
   x:Class="ExpanderSample.MainPage">
 
   <ScrollView>
     <VerticalStackLayout
       Padding="8"
       Spacing="6">
-      <maui:Expander Animated="True">
-        <maui:Expander.HeaderContent>
-          <Border
-            BackgroundColor="Orange"
-            StrokeShape="RoundRectangle 6"
-            StrokeThickness="0">
-            <Grid HeightRequest="80">
-              <Label
-                Text="Expander #1"
-                FontSize="Title"
-                VerticalOptions="Center"
-                HorizontalOptions="Center" />
-            </Grid>
-          </Border>
-        </maui:Expander.HeaderContent>
-        <Grid
-          Margin="6,0"
-          HeightRequest="200"
-          BackgroundColor="DarkSlateGray">
-          <Label
-            Text="This is the content of an expander!"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
-        </Grid>
-      </maui:Expander>
-      <maui:Expander Animated="True">
+
+      <!--Default style defined in ExpanderStyles.xaml -->
+      <ExpanderControl:Expander Animated="True" HeaderText="Test expander 001">
+        <StackLayout Style="{StaticResource ExpanderContentStackLayout}">
+          <Label Text="L010001" FontAttributes="Bold"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+        </StackLayout>
+      </ExpanderControl:Expander>
+
+      
+      <ExpanderControl:Expander Animated="True" ExpandDuration="1000"  
+                     HeaderText="Test expander 002"
+                     HeaderBorderStyle="{StaticResource ExpanderHeaderBorder2}"
+                     HeaderTextStyle="{StaticResource ExpanderHeaderText}"
+                     HeaderIconStyle="{StaticResource ExpanderHeaderIcon}"
+                     >
+        <VerticalStackLayout Style="{StaticResource ExpanderContentVerticalStackLayout}">
+          <Label Text="L010001" FontAttributes="Bold" Style="{StaticResource ExpanderHeaderText}"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+        </VerticalStackLayout>
+      </ExpanderControl:Expander>
+
+
+      <!--The modified style defined in ExpanderStyles.xaml with the style name ExpanderTemplate.-->
+      <ExpanderControl:Expander Animated="True" HeaderText="Test expander 003" Style="{StaticResource ExpanderTemplate}">
+        <StackLayout Style="{StaticResource ExpanderContentStackLayout}">
+          <Label Text="L010001" FontAttributes="Bold"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+        </StackLayout>
+      </ExpanderControl:Expander>
+
+      <ExpanderControl:Expander Animated="True" HeaderText="Test expander with very long text 004">
+        <StackLayout Style="{StaticResource ExpanderContentStackLayout}">
+          <Label Text="L010001" FontAttributes="Bold"></Label>
+          <Editor></Editor>
+          <Label Text="L010001"></Label>
+          <Editor></Editor>
+        </StackLayout>
+      </ExpanderControl:Expander>
+
+
+
+      <Button Text="View-only accordion" Clicked="OnViewOnlyButtonClicked" />
+      <Button Text="Hybrid accordion" Clicked="OnHybridButtonClicked" />
+      <Button Text="Data binding accordion" Clicked="OnDataBindingButtonClicked" />
+
+      <!--<maui:Expander Animated="True">
         <maui:Expander.HeaderContent>
           <Border
             BackgroundColor="Orange"
@@ -64,7 +121,8 @@
             Text="Data binding accordion"
             Clicked="OnDataBindingButtonClicked" />
         </VerticalStackLayout>
-      </maui:Expander>
+      </maui:Expander>-->
+      
     </VerticalStackLayout>
   </ScrollView>
 
