@@ -131,6 +131,9 @@ Add namespace: xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=e
 
 ..sample\ExpanderSample\Resources\Styles\ExpanderStyles.xaml
 
+## The icon in the expander is not displayed correctly
+If you don't see the icon (MaterialDesignIconsFont font), switch Visual Studio to Release, rebuild both projects, then switch to Debug, rebuild the project again, then you can run the application on your Android phone. The MaterialDesignIconsFont font icon should now be visible.
+
 ============================================
 ============================================
 ============================================
