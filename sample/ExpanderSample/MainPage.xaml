@@ -2,7 +2,7 @@
 <ContentPage
   xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
+  xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=mpo.Expander.Maui"
   x:Class="ExpanderSample.MainPage">
 
   <ScrollView>
@@ -91,6 +91,8 @@
       <Button Text="Hybrid accordion" Clicked="OnHybridButtonClicked" />
       <Button Text="Data binding accordion" Clicked="OnDataBindingButtonClicked" />
 
+     
+      
       <!--<maui:Expander Animated="True">
         <maui:Expander.HeaderContent>
           <Border

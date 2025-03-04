@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls;
 using System.Diagnostics;
 using System.Windows.Input;
 namespace epj.Expander.Maui;
@@ -9,7 +10,10 @@ public class Expander : ContentView
     private static bool _animationsEnabled;
 
     private readonly SemaphoreSlim _semaphoreSlim = new(1, 1);
-   
+
+    private readonly double _fadeToOpacity = 0.6D;
+    private readonly uint _fadeToExecutionTime = 200;
+
     private Grid HeaderGrid { get; } 
     private Grid BodyGrid { get; }
     private Border MyHeaderBorder { get; set; } 
@@ -355,7 +359,27 @@ public class Expander : ContentView
 
                 MyHeaderIcon.Rotation = HeaderIconRotateAngle;
 
+                //await BodyContent.AnimateAsync(animation, ExpandDuration);
+
+
+
+                var a1 = BodyContent.AnimateAsync(animation, ExpandDuration);
+
+                //var a2 = new Animation(v => MyHeaderBorder.FadeTo(_fadeToOpacity, _fadeToExecutionTime, Easing.SinOut));
+                //var a3 = new Animation(v => MyHeaderBorder.FadeTo(1, _fadeToExecutionTime, Easing.SinOut));
+
+                var a = new Animation()
+                    .Add(new Animation(v => MyHeaderBorder.FadeTo(_fadeToOpacity, _fadeToExecutionTime, Easing.SinOut)))
+                    .Add(new Animation(v => MyHeaderBorder.FadeTo(1, _fadeToExecutionTime, Easing.SinOut)));
+                
+                //var tcs = new TaskCompletionSource();
+                //a.Commit(MyHeaderBorder, "E", 250, finished: (v, c) => { tcs.SetResult(); });
                 await BodyContent.AnimateAsync(animation, ExpandDuration);
+
+                //await Task.WhenAll( a1); 
+
+                //await MyHeaderBorder.FadeTo(1, _fadeToExecutionTime, Easing.SinOut);
+
             }
             else
             {
@@ -365,7 +389,21 @@ public class Expander : ContentView
 
                 MyHeaderIcon.Rotation = HeaderIconDefaultRotationAngle;
 
+                // await BodyContent.AnimateAsync(animation, CollapseDuration);
+
+                //var a1 = BodyContent.AnimateAsync(animation, CollapseDuration);
+                //var a2 = MyHeaderBorder.FadeTo(_fadeToOpacity, _fadeToExecutionTime, Easing.SinOut);
+                //await Task.WhenAny(a1, a2); ;
+                //await MyHeaderBorder.FadeTo(1, _fadeToExecutionTime, Easing.SinOut);
+
+                var a = new Animation()
+                    .Add(new Animation(v => MyHeaderBorder.FadeTo(_fadeToOpacity, _fadeToExecutionTime, Easing.SinOut)))
+                    .Add(new Animation(v => MyHeaderBorder.FadeTo(1, _fadeToExecutionTime, Easing.SinOut)));
+
+                //var tcs = new TaskCompletionSource();
+                //a.Commit(MyHeaderBorder, "E", 250, finished: (v, c) => { tcs.SetResult(); });
                 await BodyContent.AnimateAsync(animation, CollapseDuration);
+
 
                 OnPropertyChanged(nameof(IsExpanded));
                 notified = true;

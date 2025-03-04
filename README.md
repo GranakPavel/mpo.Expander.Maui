@@ -31,25 +31,63 @@ To view the font code, you can use the page: https://andreinitescu.github.io/Ico
 Registration of the control strictly isn't required, because it only uses standard controls natively supported by .NET MAUI at the moment. However, a registration method is provided in case that some future version requires to do so:
 
 ```c#
-public static MauiApp CreateMauiApp()
-{
-    var builder = MauiApp.CreateBuilder();
-    builder
-        .UseMauiApp<App>()
-        .UseExpander() // optional: add this
-        .ConfigureFonts(fonts =>
-        {
-            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            fonts.AddFont("materialdesignicons.ttf", "MaterialDesignIconsFont");
-        });
+using epj.Expander.Maui;
+using Microsoft.Extensions.Logging;
 
-    return builder.Build();
+namespace ExpanderSample
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .UseExpander()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("materialdesignicons.ttf", "MaterialDesignIconsFont");
+                });
+
+#if DEBUG
+		builder.Logging.AddDebug();
+#endif
+
+            // enable animations for Android & iOS
+            Expander.EnableAnimations();
+
+            return builder.Build();
+        }
+    }
 }
+
 ```
 
 ### XAML
-Add namespace: xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui"
+
+Add App.xaml:  <ResourceDictionary Source="Resources/Styles/ExpanderStyles.xaml" />
+```xml
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ExpanderSample"
+             x:Class="ExpanderSample.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/ExpanderStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+
+```
+
+Add namespace: xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=mpo.Expander.Maui"
 ```xml
 
       <!--Default style defined in ExpanderStyles.xaml -->
@@ -130,6 +168,140 @@ Add namespace: xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=e
 ## Styles
 
 ..sample\ExpanderSample\Resources\Styles\ExpanderStyles.xaml
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=mpo.Expander.Maui">
+  
+  <x:Double x:Key="BasicFontSize">18</x:Double>
+  <SolidColorBrush x:Key="ColorExpander" Color="#068DA9"></SolidColorBrush>
+
+
+  <Style TargetType="Border" x:Key="ExpanderHeaderBorder3">
+    <Setter Property="Background" Value="{StaticResource ColorExpander}"></Setter>
+    <Setter Property="StrokeThickness" Value="1" />
+    <Setter Property="VerticalOptions" Value="Center"></Setter>
+    <Setter Property="Stroke" Value="Yellow"></Setter>
+    <Setter Property="StrokeShape">
+      <Setter.Value>
+        <RoundRectangle CornerRadius="5" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Margin" Value="0,0,0,4"></Setter>
+    <Setter Property="Padding" Value="0,12,0,12"></Setter>
+    <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+    <Setter Property="VerticalOptions" Value="Center"></Setter>
+    <Setter Property="MinimumHeightRequest" Value="40"></Setter>
+  </Style>
+
+  <Style TargetType="Border" x:Key="ExpanderHeaderBorder2">
+    <Setter Property="Background" Value="{StaticResource ColorExpander}"></Setter>
+    <Setter Property="StrokeThickness" Value="1" />
+    <Setter Property="VerticalOptions" Value="Center"></Setter>
+    <Setter Property="Stroke" Value="Red"></Setter>
+    <Setter Property="StrokeShape">
+      <Setter.Value>
+        <RoundRectangle CornerRadius="5" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Margin" Value="0,0,0,4"></Setter>
+    <Setter Property="Padding" Value="0,12,0,12"></Setter>
+    <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+    <Setter Property="VerticalOptions" Value="Center"></Setter>
+    <Setter Property="MinimumHeightRequest" Value="40"></Setter>
+  </Style>
+
+
+  <Style TargetType="Border" x:Key="ExpanderHeaderBorder">
+    <Setter Property="Background" Value="{StaticResource ColorExpander}"></Setter>
+    <Setter Property="StrokeThickness" Value="1" />
+    <Setter Property="VerticalOptions" Value="Center"></Setter>
+    <Setter Property="StrokeShape">
+      <Setter.Value>
+        <RoundRectangle CornerRadius="5" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Margin" Value="0,0,0,4"></Setter>
+    <Setter Property="Padding" Value="0,12,0,12"></Setter>
+    <Setter Property="HorizontalOptions" Value="Fill"></Setter>
+    <Setter Property="VerticalOptions" Value="Center"></Setter>
+    <Setter Property="MinimumHeightRequest" Value="40"></Setter>
+  </Style>
+
+  <Style TargetType="Label" x:Key="ExpanderHeaderText">
+    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Primary}}"/>
+    <Setter Property="FontFamily" Value="OpenSansRegular" />
+    <Setter Property="FontSize" Value="{StaticResource BasicFontSize}" />
+    <Setter Property="Background" Value="Transparent"></Setter>
+    <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+    <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+    <Setter Property="HorizontalOptions" Value="StartAndExpand"></Setter>
+    <Setter Property="Margin" Value="10,0,0,0"></Setter>
+
+    <Setter Property="VisualStateManager.VisualStateGroups">
+      <VisualStateGroupList>
+        <VisualStateGroup x:Name="CommonStates">
+          <VisualState x:Name="Normal" />
+          <VisualState x:Name="Disabled">
+            <VisualState.Setters>
+              <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}" />
+            </VisualState.Setters>
+          </VisualState>
+        </VisualStateGroup>
+      </VisualStateGroupList>
+    </Setter>
+  </Style>
+
+  <Style TargetType="Label" x:Key="ExpanderHeaderIcon">
+    <Setter Property="FontFamily" Value="MaterialDesignIconsFont" />
+    <Setter Property="TextColor" Value="{StaticResource Gray100}"></Setter>
+    <Setter Property="Text" Value="&#xf050;"></Setter>
+    <Setter Property="Background" Value="Transparent"></Setter>
+    <Setter Property="FontSize" Value="Medium" />
+    <Setter Property="Margin" Value="0"></Setter>
+    <Setter Property="Padding" Value="0"></Setter>
+    <Setter Property="HorizontalOptions" Value="Center"></Setter>
+    <Setter Property="VerticalOptions" Value="Center"></Setter>
+
+  </Style>
+
+
+  <Style TargetType="StackLayout" x:Key="ExpanderContentStackLayout">
+    <Setter Property="Margin" Value="0,0,0,4"></Setter>
+    <Setter Property="Padding" Value="5, 10, 0 ,15"></Setter>
+  </Style>
+  <Style TargetType="HorizontalStackLayout" x:Key="ExpanderContentHorizontalStackLayout">
+    <Setter Property="Margin" Value="0,0,0,4"></Setter>
+    <Setter Property="Padding" Value="5, 10, 0 ,15"></Setter>
+  </Style>
+
+  <Style TargetType="VerticalStackLayout" x:Key="ExpanderContentVerticalStackLayout">
+    <Setter Property="Margin" Value="0,0,0,4"></Setter>
+    <Setter Property="Padding" Value="5, 10, 0 ,15"></Setter>
+  </Style>
+
+  <!--<Setter Property="Text" Value="&#xf048;"></Setter>-->
+
+
+  <Style TargetType="ExpanderControl:Expander" ApplyToDerivedTypes="True">
+    <Setter Property="HeaderBorderStyle" Value="{DynamicResource ExpanderHeaderBorder}"></Setter>
+    <Setter Property="HeaderTextStyle" Value="{DynamicResource ExpanderHeaderText}"></Setter>
+    <Setter Property="HeaderIconStyle" Value="{DynamicResource ExpanderHeaderIcon}"></Setter>
+  </Style>
+
+
+  <Style TargetType="ExpanderControl:Expander" x:Key="ExpanderTemplate" ApplyToDerivedTypes="True">
+    <Setter Property="HeaderBorderStyle" Value="{DynamicResource ExpanderHeaderBorder3}"></Setter>
+    <Setter Property="HeaderTextStyle" Value="{DynamicResource ExpanderHeaderText}"></Setter>
+    <Setter Property="HeaderIconStyle" Value="{DynamicResource ExpanderHeaderIcon}"></Setter>
+  </Style>
+
+</ResourceDictionary>
+```
+
+
 
 ============================================
 ============================================

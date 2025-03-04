@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                   xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=epj.Expander.Maui" 
-                    >
-
-
+                   xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=mpo.Expander.Maui">
+  
   <x:Double x:Key="BasicFontSize">18</x:Double>
+  <SolidColorBrush x:Key="ColorExpander" Color="#068DA9"></SolidColorBrush>
+
 
   <Style TargetType="Border" x:Key="ExpanderHeaderBorder3">
     <Setter Property="Background" Value="{StaticResource ColorExpander}"></Setter>
