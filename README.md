@@ -14,12 +14,12 @@ I added properties that can set the expander header styles.
 
 | Type       | Property                  | Description                                                             | Default Value |
 |------------|---------------------------|-------------------------------------------------------------------------|---------------|
-| String     | HeaderTextProperty        | Your text in the header                                                 | string.Empty  |
-| Style      | HeaderBorderStyleProperty | Defining the Header Border Style                                        | Style         |    
-| Style      | HeaderTextStyleProperty   | Defining the header text style.                                         | Style         |    
-| Style      | HeaderIconStyleProperty   | Definování stylu ikony hlavičky.                                        | Style         | 
-| Double     | HeaderIconDefaultRotationAngleProperty | Default icon rotation                                      | 0D            |
-| Double     | HeaderIconRotateAngleProperty | Rotate icon by                                                      | -90D          |
+| String     | HeaderText                | Your text in the header                                                 | string.Empty  |
+| Style      | HeaderBorderStyle         | Defining the Header Border Style                                        | Style         |    
+| Style      | HeaderTextStyle           | Defining the header text style.                                         | Style         |    
+| Style      | HeaderIconStyle           | Defining the header icon style.                                         | Style         | 
+| Double     | HeaderIconDefaultRotationAngle | Default icon rotation                                              | 0D            |
+| Double     | HeaderIconRotateAngle     | Rotate icon by                                                          | -90D          |
 
 I used the font for the icon materialdesignicons.ttf
 To view the font code, you can use the page: https://andreinitescu.github.io/IconFont2Code/
@@ -29,6 +29,7 @@ To view the font code, you can use the page: https://andreinitescu.github.io/Ico
 ### Registration
 
 Registration of the control strictly isn't required, because it only uses standard controls natively supported by .NET MAUI at the moment. However, a registration method is provided in case that some future version requires to do so:
+
 
 ```c#
 using epj.Expander.Maui;
@@ -169,6 +170,7 @@ Add namespace: xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=m
 
 ..sample\ExpanderSample\Resources\Styles\ExpanderStyles.xaml
 
+<<<<<<< HEAD
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -302,6 +304,11 @@ Add namespace: xmlns:ExpanderControl="clr-namespace:epj.Expander.Maui;assembly=m
 ```
 
 
+=======
+> [!CAUTION]
+> ## The icon in the expander is not displayed correctly
+> If you don't see the icon (MaterialDesignIconsFont font), switch Visual Studio to Release, rebuild both projects, then switch to Debug, rebuild the project again, then you can run the application on your Android phone. The MaterialDesignIconsFont font icon should now be visible.
+>>>>>>> 2b995bcf900b3ac03cc33c59bf4c0d998d1d099b
 
 ============================================
 ============================================
