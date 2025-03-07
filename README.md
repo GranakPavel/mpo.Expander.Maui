@@ -22,6 +22,8 @@ I added properties that can set the expander header styles.
 | Double     | HeaderIconRotateAngle     | Rotate icon by                                                          | -90D          |
 
 I used the font for the icon materialdesignicons.ttf
+Source: sample/ExpanderSample/Resources/Fonts/materialdesignicons.ttf
+
 To view the font code, you can use the page: https://andreinitescu.github.io/IconFont2Code/
 
 ## Usage
